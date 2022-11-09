@@ -3,9 +3,6 @@ import axios from "axios";
 import { OpeningIndex } from "./OpeningIndex";
 import { Modal } from "./Modal";
 import { OpeningShow } from "./OpeningShow";
-import { Studies } from "./Studies";
-import { Signup } from "./SignUp";
-import { Login } from "./Login";
 import { LogoutLink } from "./LogoutLink";
 
 export function Home() {
@@ -33,14 +30,11 @@ export function Home() {
 
   return (
     <div>
-      <Signup />
-      <Login />
       <LogoutLink />
       <OpeningIndex Openings={openings} onSelectOpening={handleShowOpening} />
       <Modal show={isOpeningVisible} onClose={handleHideOpening}>
         <OpeningShow opening={opening} />
       </Modal>
-      <Studies opening={opening} />
     </div>
   );
 }

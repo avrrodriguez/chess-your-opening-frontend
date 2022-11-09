@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { ChessGame } from "./ChessGame";
 
-export function Studies(props) {
+export function Studies() {
   const [studies, setStudies] = useState([]);
 
   const handleStudiesIndex = () => {

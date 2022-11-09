@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 
-export function Signup() {
+export function SignUp() {
   const [errors, setErrors] = useState([]);
 
   const handleSubmit = (event) => {
