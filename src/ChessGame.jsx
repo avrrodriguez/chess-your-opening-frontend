@@ -49,7 +49,7 @@ export function ChessGame(props) {
         <option value="2">Game 3</option>
         <option value="3">Game 4</option>
       </select>
-      <iframe width="600" height="371" src={`https://lichess.org/embed/game/${gameIds[game]}`} frameBorder="0"></iframe>
+      <iframe width="600" height="400" src={`https://lichess.org/embed/game/${gameIds[game]}`} frameBorder="0"></iframe>
     </div>
   );
 }

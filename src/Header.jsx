@@ -29,13 +29,20 @@ export function Header() {
                   </Link>
                 </a>
               </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">
-                  <Link to="/Studies" style={{ textDecoration: "none" }}>
-                    Studies
-                  </Link>
-                </a>
-              </li>
+              {localStorage.jwt !== undefined ? (
+                <>
+                  <li className="nav-item">
+                    <a className="nav-link" href="#">
+                      <Link to="/Studies" style={{ textDecoration: "none" }}>
+                        Studies
+                      </Link>
+                    </a>
+                  </li>
+                </>
+              ) : (
+                <></>
+              )}
+
               <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
@@ -44,28 +51,33 @@ export function Header() {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Dropdown
+                  User Settings
                 </a>
                 <ul className="dropdown-menu">
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      <Link to="/Login" style={{ textDecoration: "none" }}>
-                        Login
-                      </Link>
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      <Link to="/SignUp" style={{ textDecoration: "none" }}>
-                        SignUp
-                      </Link>
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      <LogoutLink />
-                    </a>
-                  </li>
+                  {localStorage.jwt === undefined ? (
+                    <>
+                      <li>
+                        <a className="dropdown-item" href="#">
+                          <Link to="/Login" style={{ textDecoration: "none" }}>
+                            Login
+                          </Link>
+                        </a>
+                      </li>
+                      <li>
+                        <a className="dropdown-item" href="#">
+                          <Link to="/SignUp" style={{ textDecoration: "none" }}>
+                            SignUp
+                          </Link>
+                        </a>
+                      </li>
+                    </>
+                  ) : (
+                    <li>
+                      <a className="dropdown-item" href="#">
+                        <LogoutLink />
+                      </a>
+                    </li>
+                  )}
                 </ul>
               </li>
             </ul>

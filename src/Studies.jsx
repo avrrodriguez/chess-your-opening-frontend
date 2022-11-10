@@ -47,32 +47,36 @@ export function Studies() {
 
   return (
     <div>
-      <h1>Studies</h1>
+      <h1 className="d-flex justify-content-center">Studies</h1>
       {studies.map((study) => (
-        <div key={study.id}>
-          <div key={study.opening.id}>
-            <OpeningShow opening={handleOpeningShow(study)} />
+        <div key={study.id} className="container">
+          <div className="row mt-1 mb-3">
+            <div key={study.opening.id} className="col">
+              <OpeningShow opening={handleOpeningShow(study)} />
+            </div>
+            <div className="col mt-5">
+              <div>
+                <ChessGame openingName={study.opening.name} />
+              </div>
+              <form onSubmit={handleStudyUpdate}>
+                <div>
+                  <input type="hidden" name="opening_id" value={study.opening_id} />
+                </div>
+                <div>
+                  <input type="hidden" name="study_id" value={study.id} />
+                </div>
+                <div>
+                  Notes: <textarea type="text" name="notes" defaultValue={study.notes} />
+                </div>
+                <div>
+                  <button type="change">Update</button>
+                </div>
+              </form>
+              <button type="submit" onClick={() => handleStudyDestroy(study)}>
+                Delete Study
+              </button>
+            </div>
           </div>
-          <div>
-            <ChessGame openingName={study.opening.name} />
-          </div>
-          <form onSubmit={handleStudyUpdate}>
-            <div>
-              <input type="hidden" name="opening_id" value={study.opening_id} />
-            </div>
-            <div>
-              <input type="hidden" name="study_id" value={study.id} />
-            </div>
-            <div>
-              Notes: <textarea type="text" name="notes" defaultValue={study.notes} />
-            </div>
-            <div>
-              <button type="change">Update</button>
-            </div>
-          </form>
-          <button type="submit" onClick={() => handleStudyDestroy(study)}>
-            Delete Study
-          </button>
         </div>
       ))}
     </div>
