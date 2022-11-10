@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { ChessGame } from "./ChessGame";
 import { OpeningShow } from "./OpeningShow";
+import { StudyNew } from "./StudyNew";
 
 export function Studies() {
   const [studies, setStudies] = useState([]);
@@ -10,16 +11,6 @@ export function Studies() {
     axios.get("http://localhost:3000/studies.json").then((response) => {
       console.log(response.data);
       setStudies(response.data);
-    });
-  };
-
-  const handleStudyCreate = (event) => {
-    event.preventDefault();
-    const params = new FormData(event.target);
-    axios.post("http://localhost:3000/studies.json", params).then((response) => {
-      console.log(response.data);
-      setStudies([...studies, response.data]);
-      event.target.reset();
     });
   };
 
@@ -61,7 +52,7 @@ export function Studies() {
       <h1>Studies</h1>
       {studies.map((study) => (
         <div key={study.id}>
-          <div>
+          <div key={study.opening.id}>
             <OpeningShow opening={handleOpeningShow(study)} />
           </div>
           <div>
@@ -86,17 +77,6 @@ export function Studies() {
           </button>
         </div>
       ))}
-      <form onSubmit={handleStudyCreate}>
-        <div>
-          New Study: <input type="text" name="notes" id="notes" />
-        </div>
-        <div>
-          <input type="hidden" name="opening_id" value="1" />
-        </div>
-        <div>
-          <button type="submit">Add to Studies</button>
-        </div>
-      </form>
     </div>
   );
 }

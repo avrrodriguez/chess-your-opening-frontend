@@ -1,3 +1,5 @@
+import { StudyNew } from "./StudyNew";
+
 export function OpeningShow(props) {
   return (
     <div>
@@ -30,6 +32,7 @@ export function OpeningShow(props) {
           <p>{position.variation}</p>
         </div>
       ))}
+      <StudyNew openingId={props.opening.id} />
     </div>
   );
 }
