@@ -30,7 +30,6 @@ export function Home() {
 
   return (
     <div className="container">
-      <LogoutLink />
       <OpeningIndex Openings={openings} onSelectOpening={handleShowOpening} />
       <Modal show={isOpeningVisible} onClose={handleHideOpening}>
         <OpeningShow opening={opening} />

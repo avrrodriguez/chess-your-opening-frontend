@@ -9,7 +9,7 @@ export function LogoutLink() {
   };
 
   return (
-    <a href="#" onClick={handleClick}>
+    <a href="#" onClick={handleClick} style={{ textDecoration: "none" }}>
       Logout
     </a>
   );
