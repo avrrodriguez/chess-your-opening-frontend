@@ -32,7 +32,13 @@ export function OpeningShow(props) {
           <p>{position.variation}</p>
         </div>
       ))}
-      <StudyNew openingId={props.opening.id} />
+      {window.location.href !== "http://localhost:5173/Studies" ? (
+        <div>
+          <StudyNew openingId={props.opening.id} />
+        </div>
+      ) : (
+        <></>
+      )}
     </div>
   );
 }

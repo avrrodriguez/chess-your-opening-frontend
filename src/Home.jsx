@@ -29,7 +29,7 @@ export function Home() {
   useEffect(handleOpeningIndex, []);
 
   return (
-    <div>
+    <div className="container">
       <LogoutLink />
       <OpeningIndex Openings={openings} onSelectOpening={handleShowOpening} />
       <Modal show={isOpeningVisible} onClose={handleHideOpening}>
