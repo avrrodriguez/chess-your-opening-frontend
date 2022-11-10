@@ -28,6 +28,7 @@ export function ChessGame() {
       axios.defaults.headers.common["Authorization"] = `Bearer ${jwt}`;
     }
   };
+
   useEffect(handleGameRequest, []);
 
   return (

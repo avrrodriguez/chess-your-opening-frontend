@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { ChessGame } from "./ChessGame";
+import { OpeningShow } from "./OpeningShow";
 
 export function Studies() {
   const [studies, setStudies] = useState([]);
@@ -46,13 +47,26 @@ export function Studies() {
     });
   };
 
+  const handleOpeningShow = (study) => {
+    var opening = Object.assign({}, study.opening);
+    opening["resources"] = study.resources;
+    opening["common_positions"] = study.common_positions;
+    return opening;
+  };
+
   useEffect(handleStudiesIndex, []);
 
   return (
     <div>
-      <h1>My Studies</h1>
+      <h1>Studies</h1>
       {studies.map((study) => (
         <div key={study.id}>
+          <div>
+            <OpeningShow opening={handleOpeningShow(study)} />
+          </div>
+          <div>
+            <ChessGame />
+          </div>
           <form onSubmit={handleStudyUpdate}>
             <div>
               <input type="hidden" name="opening_id" value={study.opening_id} />
