@@ -2,14 +2,12 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { ChessGame } from "./ChessGame";
 import { OpeningShow } from "./OpeningShow";
-import { StudyNew } from "./StudyNew";
 
 export function Studies() {
   const [studies, setStudies] = useState([]);
 
   const handleStudiesIndex = () => {
     axios.get("http://localhost:3000/studies.json").then((response) => {
-      console.log(response.data);
       setStudies(response.data);
     });
   };
@@ -56,7 +54,7 @@ export function Studies() {
             <OpeningShow opening={handleOpeningShow(study)} />
           </div>
           <div>
-            <ChessGame />
+            <ChessGame openingName={study.opening.name} />
           </div>
           <form onSubmit={handleStudyUpdate}>
             <div>
