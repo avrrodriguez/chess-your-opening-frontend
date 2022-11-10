@@ -34,7 +34,7 @@ export function Header() {
                   <li className="nav-item">
                     <a className="nav-link" href="#">
                       <Link to="/Studies" style={{ textDecoration: "none" }}>
-                        Studies
+                        My Studies
                       </Link>
                     </a>
                   </li>

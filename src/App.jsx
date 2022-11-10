@@ -5,6 +5,7 @@ import { Footer } from "./Footer";
 import { Studies } from "./Studies";
 import { Login } from "./Login";
 import { SignUp } from "./SignUp";
+import { StudiesShow } from "./StudiesShow";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/studies" element={<Studies />} />
         <Route path="/login" element={<Login />} />
         <Route path="/SignUp" element={<SignUp />} />
+        <Route path="/studies/:id" element={<StudiesShow />} />
       </Routes>
       <Footer />
     </BrowserRouter>
