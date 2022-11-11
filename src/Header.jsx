@@ -23,20 +23,16 @@ export function Header() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
-                  <Link to="/" style={{ textDecoration: "none" }}>
-                    Home
-                  </Link>
-                </a>
+                <Link className="nav-link active" aria-current="page" to="/" style={{ textDecoration: "none" }}>
+                  Home
+                </Link>
               </li>
               {localStorage.jwt !== undefined ? (
                 <>
                   <li className="nav-item">
-                    <a className="nav-link" href="#">
-                      <Link to="/Studies" style={{ textDecoration: "none" }}>
-                        My Studies
-                      </Link>
-                    </a>
+                    <Link className="nav-link" to="/Studies" style={{ textDecoration: "none" }}>
+                      My Studies
+                    </Link>
                   </li>
                 </>
               ) : (
@@ -57,25 +53,19 @@ export function Header() {
                   {localStorage.jwt === undefined ? (
                     <>
                       <li>
-                        <a className="dropdown-item" href="#">
-                          <Link to="/Login" style={{ textDecoration: "none" }}>
-                            Login
-                          </Link>
-                        </a>
+                        <Link className="dropdown-item" to="/Login" style={{ textDecoration: "none" }}>
+                          Login
+                        </Link>
                       </li>
                       <li>
-                        <a className="dropdown-item" href="#">
-                          <Link to="/SignUp" style={{ textDecoration: "none" }}>
-                            SignUp
-                          </Link>
-                        </a>
+                        <Link className="dropdown-item" to="/SignUp" style={{ textDecoration: "none" }}>
+                          SignUp
+                        </Link>
                       </li>
                     </>
                   ) : (
                     <li>
-                      <a className="dropdown-item" href="#">
-                        <LogoutLink />
-                      </a>
+                      <LogoutLink />
                     </li>
                   )}
                 </ul>

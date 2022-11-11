@@ -18,7 +18,9 @@ export function Studies() {
       <h1 className="d-flex justify-content-center">My Studies</h1>
 
       {studies.map((study) => (
-        <Link to={`/studies/${study.id}`}>yas yas y as</Link>
+        <div key={study.id}>
+          <Link to={`/studies/${study.id}`}>yas yas y as</Link>
+        </div>
       ))}
     </div>
   );

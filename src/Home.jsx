@@ -3,7 +3,6 @@ import axios from "axios";
 import { OpeningIndex } from "./OpeningIndex";
 import { Modal } from "./Modal";
 import { OpeningShow } from "./OpeningShow";
-import { LogoutLink } from "./LogoutLink";
 
 export function Home() {
   const [openings, setOpenings] = useState([]);

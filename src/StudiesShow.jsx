@@ -4,9 +4,8 @@ import { ChessGame } from "./ChessGame";
 import { OpeningShow } from "./OpeningShow";
 import { useParams } from "react-router-dom";
 
-export function StudiesShow(props) {
-  const [studies, setStudies] = useState([]);
-  const [study, getStudy] = useState({});
+export function StudiesShow() {
+  const [study, setStudy] = useState({});
 
   let { id } = useParams();
   const routeStudyId = id;
@@ -15,13 +14,9 @@ export function StudiesShow(props) {
     console.log(routeStudyId);
     axios.get("http://localhost:3000/studies/" + routeStudyId + ".json").then((response) => {
       console.log(response.data);
-      getStudy(response.data);
+      setStudy(response.data);
     });
   };
-
-  useEffect(handleStudyShow, []);
-  console.log("yabayabadoo");
-  console.log(study);
 
   const handleStudyUpdate = (event) => {
     event.preventDefault();
@@ -29,21 +24,14 @@ export function StudiesShow(props) {
     const studyId = params.get("study_id");
     axios.patch("http://localhost:3000/studies/" + studyId + ".json", params).then((response) => {
       console.log(response.data);
-      setStudies(
-        studies.map((study) => {
-          if (study.id === response.data.id) {
-            return response.data;
-          } else {
-            return study;
-          }
-        })
-      );
+      setStudy(response.data);
     });
   };
 
   const handleStudyDestroy = (study) => {
     axios.delete("http://localhost:3000/studies/" + study.id + ".json").then((response) => {
-      setStudies(studies.filter((s) => s.id !== study.id));
+      console.log(response);
+      window.location.href = "/";
     });
   };
 
@@ -54,16 +42,18 @@ export function StudiesShow(props) {
     return opening;
   };
 
+  useEffect(handleStudyShow, []);
+
   return (
     <div>
       <div key={study.id} className="container">
         <div className="row mt-1 mb-3">
-          <div key={study.opening.id} className="col">
+          <div key={study.opening?.id} className="col">
             <OpeningShow opening={handleOpeningShow(study)} />
           </div>
           <div className="col mt-5">
             <div>
-              <ChessGame openingName={study.opening.name} />
+              <ChessGame openingName={study.opening?.name} />
             </div>
             <form onSubmit={handleStudyUpdate}>
               <div>
