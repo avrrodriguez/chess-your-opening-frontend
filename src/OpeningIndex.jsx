@@ -1,7 +1,9 @@
 export function OpeningIndex(props) {
   return (
     <div>
-      <h1 className="d-flex justify-content-center">Openings</h1>
+      <h1 className="d-flex justify-content-center" style={{ backgroundColor: "white" }}>
+        Openings
+      </h1>
       {props.Openings.map((opening) => (
         <div key={opening.id}>
           <div className="card mb-3" style={{ mw: "540px" }}>

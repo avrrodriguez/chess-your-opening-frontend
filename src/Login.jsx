@@ -27,24 +27,31 @@ export function Login() {
         setErrors(["Invalid email or password"]);
       });
   };
+  // style="width:800px; margin:0 auto;"
 
   return (
-    <div id="login">
-      <h1>Login</h1>
-      <ul>
-        {errors.map((error) => (
-          <li key={error}>{error}</li>
-        ))}
-      </ul>
-      <form onSubmit={handleSubmit}>
-        <div>
-          Email: <input name="email" type="email" />
-        </div>
-        <div>
-          Password: <input name="password" type="password" />
-        </div>
-        <button type="submit">Login</button>
-      </form>
+    <div
+      class="d-flex justify-content-center align-content-center align-self-center flex-wrap"
+      id="login"
+      style={{ height: "300px" }}
+    >
+      <div style={{ backgroundColor: "white", height: "210px", width: "210px" }}>
+        <h1>Login</h1>
+        <ul>
+          {errors.map((error) => (
+            <li key={error}>{error}</li>
+          ))}
+        </ul>
+        <form onSubmit={handleSubmit}>
+          <div>
+            Email: <input name="email" type="email" />
+          </div>
+          <div>
+            Password: <input name="password" type="password" />
+          </div>
+          <button type="submit">Login</button>
+        </form>
+      </div>
     </div>
   );
 }

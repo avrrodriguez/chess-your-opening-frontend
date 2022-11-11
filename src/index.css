@@ -1,3 +1,7 @@
 html {
   scroll-behavior: smooth;
 }
+
+#root {
+  background-image: url('./assets/chessbackground.png');
+}

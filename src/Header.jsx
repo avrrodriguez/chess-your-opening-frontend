@@ -27,17 +27,12 @@ export function Header() {
                   Home
                 </Link>
               </li>
-              {localStorage.jwt !== undefined ? (
-                <>
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/Studies" style={{ textDecoration: "none" }}>
-                      My Studies
-                    </Link>
-                  </li>
-                </>
-              ) : (
-                <></>
-              )}
+
+              <li className="nav-item">
+                <Link className="nav-link" to="/Studies" style={{ textDecoration: "none" }}>
+                  Studies
+                </Link>
+              </li>
 
               <li className="nav-item dropdown">
                 <a
