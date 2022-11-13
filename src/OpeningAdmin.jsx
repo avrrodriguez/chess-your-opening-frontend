@@ -1,7 +1,11 @@
-export function OpeningAdmin() {
+import { OpeningCreate } from "./OpeningCreate";
+import { OpeningUpdate } from "./OpeningUpdate";
+
+export function OpeningAdmin(props) {
   return (
     <div>
-      <p>sad</p>
+      <OpeningUpdate opening={props.opening} />
+      <OpeningCreate />
     </div>
   );
 }

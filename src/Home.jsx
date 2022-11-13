@@ -27,7 +27,8 @@ export function Home() {
     setIsOpeningVisible(false);
   };
 
-  const handleShowOpeningAdmin = () => {
+  const handleShowOpeningAdmin = (opening) => {
+    setOpening(opening);
     setIsOpeningAdminVisible(true);
   };
 
@@ -48,7 +49,7 @@ export function Home() {
         <OpeningShow opening={opening} />
       </Modal>
       <Modal show={isOpeningAdminVisible} onClose={handleHideOpeningAdmin}>
-        <OpeningAdmin />
+        <OpeningAdmin opening={opening} />
       </Modal>
     </div>
   );
