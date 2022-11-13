@@ -19,6 +19,7 @@ export function Login() {
         console.log(response.data);
         axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.jwt;
         localStorage.setItem("jwt", response.data.jwt);
+        localStorage.setItem("user_admin", response.data.admin);
         event.target.reset();
         window.location.href = "/"; // Change this to hide a modal, redirect to a specific page, etc.
       })
@@ -27,11 +28,10 @@ export function Login() {
         setErrors(["Invalid email or password"]);
       });
   };
-  // style="width:800px; margin:0 auto;"
 
   return (
     <div
-      class="d-flex justify-content-center align-content-center align-self-center flex-wrap"
+      className="d-flex justify-content-center align-content-center align-self-center flex-wrap"
       id="login"
       style={{ height: "300px" }}
     >
