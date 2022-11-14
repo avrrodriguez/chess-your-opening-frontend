@@ -8,6 +8,12 @@ export function ResourceUpdate(props) {
     });
   };
 
+  const handleDestroy = (resourceId) => {
+    axios.delete("http://localhost:3000/resources/" + resourceId + ".json").then((response) => {
+      window.location.href = "/";
+    });
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const params = new FormData(event.target);
@@ -33,8 +39,11 @@ export function ResourceUpdate(props) {
               <div className="mb-1">
                 Resource Type <input name="resource_type" defaultValue={resource.resource_type} />
               </div>
-              <button type="Submit">Submit</button>
+              <button className="mb-1" type="Submit">
+                Submit
+              </button>
             </form>
+            <button onClick={() => handleDestroy(resource.id)}>Delete</button>
           </div>
         );
       })}
