@@ -3,6 +3,7 @@ import { OpeningUpdate } from "./OpeningUpdate";
 import { ResourceCreate } from "./ResourceCreate";
 import { ResourceUpdate } from "./ResourceUpdate";
 import { CommonPositionsCreate } from "./CommonPositionsCreate";
+import { CommonPositionsUpdate } from "./CommonPositionsUpdate";
 
 export function OpeningAdmin(props) {
   return (
@@ -12,6 +13,7 @@ export function OpeningAdmin(props) {
       <OpeningCreate />
       <ResourceUpdate opening={props.opening} />
       <ResourceCreate opening={props.opening} />
+      <CommonPositionsUpdate opening={props.opening} />
       <CommonPositionsCreate opening={props.opening} />
     </div>
   );
