@@ -19,7 +19,9 @@ export function Login() {
         console.log(response.data);
         axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.jwt;
         localStorage.setItem("jwt", response.data.jwt);
-        localStorage.setItem("user_admin", response.data.admin);
+        if (response.data.admin) {
+          localStorage.setItem("user_admin", response.data.admin);
+        }
         event.target.reset();
         window.location.href = "/"; // Change this to hide a modal, redirect to a specific page, etc.
       })

@@ -29,7 +29,7 @@ export function OpeningIndex(props) {
                     More Info
                   </button>
                   <div>
-                    {localStorage.jwt !== undefined && localStorage.user_admin === "true" ? (
+                    {localStorage.jwt !== undefined && localStorage.user_admin ? (
                       <button
                         onClick={() => {
                           props.onSelectOpeningAdmin(opening);
