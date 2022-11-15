@@ -22,10 +22,10 @@ export function ResourceUpdate(props) {
 
   return (
     <div>
+      <h3>Update Resource</h3>
       {props.opening.resources.map((resource) => {
         return (
           <div key={resource.id}>
-            <h3>Update Resource</h3>
             <form onSubmit={handleSubmit}>
               <div className="mb-1">
                 <input type="hidden" name="resource_id" defaultValue={resource.id} />

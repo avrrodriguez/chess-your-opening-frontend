@@ -45,7 +45,7 @@ export function StudiesShow() {
   useEffect(handleStudyShow, []);
 
   return (
-    <div className="" style={{ backgroundColor: "white", opacity: "0.85" }}>
+    <div className="" style={{ backgroundColor: "#C8A2C8", opacity: "0.85" }}>
       <div key={study.id} className="container">
         <div className="row mt-1 mb-3">
           <div key={study.opening?.id} className="col">

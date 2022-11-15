@@ -1,12 +1,12 @@
 export function OpeningIndex(props) {
   return (
     <div>
-      <h1 className="d-flex justify-content-center" style={{ backgroundColor: "white" }}>
+      <h1 className="d-flex justify-content-center" style={{ backgroundColor: "#C8A2C8" }}>
         Openings
       </h1>
       {props.Openings.map((opening) => (
         <div key={opening.id}>
-          <div className="card mb-3" style={{ mw: "540px" }}>
+          <div className="card mb-3" style={{ mw: "540px", backgroundColor: "#C8A2C8" }}>
             <div className="row g-0">
               <div className="col-md-4">
                 <img
@@ -22,6 +22,8 @@ export function OpeningIndex(props) {
                   <p className="card-text">Playing Difficulty: {opening.difficulty}</p>
                   <p className="card-text">Description: {opening.description}</p>
                   <button
+                    type="button"
+                    className="btn btn-secondary"
                     onClick={() => {
                       props.onSelectOpening(opening);
                     }}
@@ -31,6 +33,8 @@ export function OpeningIndex(props) {
                   <div>
                     {localStorage.jwt !== undefined && localStorage.user_admin ? (
                       <button
+                        type="button"
+                        className="btn btn-info mt-1"
                         onClick={() => {
                           props.onSelectOpeningAdmin(opening);
                         }}

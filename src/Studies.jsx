@@ -16,7 +16,7 @@ export function Studies() {
   return (
     <div className="container">
       <div className="d-flex justify-content-between mt-2 mb-2">
-        <div className="border ps-5 pe-5" style={{ backgroundColor: "white" }} id="studies-public">
+        <div className="border ps-5 pe-5" style={{ backgroundColor: "#C8A2C8" }} id="studies-public">
           <h1 className="d-flex justify-content-center">Public Studies</h1>
           {studies.map((study) =>
             study.public ? (
@@ -24,7 +24,9 @@ export function Studies() {
                 <h3>{study.opening.name}</h3>
                 <img src={study.opening.image_url} style={{ width: "311px", height: "311px" }} />
                 <div>
-                  <Link to={`/studies/${study.id}`}>Got to Study</Link>
+                  <Link type="button" class="btn btn-info" to={`/studies/${study.id}`}>
+                    Go to Study
+                  </Link>
                 </div>
               </div>
             ) : (
@@ -33,7 +35,7 @@ export function Studies() {
           )}
         </div>
         {localStorage.jwt !== undefined ? (
-          <div className="border ps-5 pe-5" id="studies-private" style={{ backgroundColor: "white" }}>
+          <div className="border ps-5 pe-5" id="studies-private" style={{ backgroundColor: "#C8A2C8" }}>
             <h1 className="d-flex justify-content-center">My Studies</h1>
             {studies.map((study) =>
               study.public ? (
@@ -43,7 +45,9 @@ export function Studies() {
                   <h3>{study.opening.name}</h3>
                   <img src={study.opening.image_url} style={{ width: "311px", height: "311px" }} />
                   <div>
-                    <Link to={`/studies/${study.id}`}>Go to Study</Link>
+                    <Link type="" to={`/studies/${study.id}`}>
+                      Go to Study
+                    </Link>
                   </div>
                 </div>
               )
