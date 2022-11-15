@@ -35,7 +35,7 @@ export function Login() {
     <div
       className="d-flex justify-content-center align-content-center align-self-center flex-wrap"
       id="login"
-      style={{ height: "300px" }}
+      style={{ height: "90vh" }}
     >
       <div style={{ backgroundColor: "#C8A2C8", height: "200px", width: "290px" }}>
         <h1 className="d-flex justify-content-center">Login</h1>
