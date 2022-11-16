@@ -22,18 +22,20 @@ JSON web token authentications was used to create secure users.
 
 ## Usage
 
-'''
+```
 npm run dev
-'''
+```
 
 - When adding openings, to get live games, add fen to ChessGames file in gameFenDict variable
   ![screenshot](gamefen_screenshot.png)
 
 - To add Image to openings, common positions, add the image url in the image url section
-  ![screenshot1](openingUpdate.png)
-  ![screenshot2](resourceCreate.png)
+  ![screenshot](openingUpdate.png)
 
 ## Roadmap
 
 - Chess board for playing custom games/games against computer
 - Dynamically adding fen and generating games when adding openings
+- Allowing users to change the status of their studies(either public or private)
+- Search bar for searching for openings
+- Making notes update upon change (no button)
