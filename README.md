@@ -20,6 +20,15 @@ JSON web token authentications was used to create secure users.
 - A user has access to the list of openings, as well as the ability to create studies.
 - An admin has access to creating, updating, deleting openings, resources, and common positions of openings.
 
+## Installation
+
+```
+npm install
+```
+
+You'll need to have the backend code running on http://localhost:3000.
+You can view the app on http://localhost:5173.
+
 ## Usage
 
 ```
