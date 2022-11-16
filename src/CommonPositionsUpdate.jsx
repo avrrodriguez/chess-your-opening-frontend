@@ -20,7 +20,7 @@ export function CommonPositionsUpdate(props) {
   };
 
   return (
-    <div>
+    <div className="mt-3">
       <h3>Update Common Positions</h3>
       {props.opening.common_positions.map((commonPosition) => {
         return (
@@ -32,19 +32,31 @@ export function CommonPositionsUpdate(props) {
               <div>
                 <input type="hidden" name="common_positions_id" value={commonPosition.id} />
               </div>
-              <div className="mb-1">
-                Name: <input name="name" type="text" defaultValue={commonPosition.name} />
+              <div>
+                <label className="p-1 ms-1" style={{ backgroundColor: "#CBC3E3" }}>
+                  Name:{" "}
+                </label>
+                <input name="name" type="text" defaultValue={commonPosition.name} />
               </div>
-              <div className="mb-1">
-                Image url: <input name="image_url" type="text" defaultValue={commonPosition.image_url} />
+              <div>
+                <label className="p-1 ms-1" style={{ backgroundColor: "#CBC3E3" }}>
+                  Image url:{" "}
+                </label>
+                <input name="image_url" type="text" defaultValue={commonPosition.image_url} />
               </div>
-              <div className="mb-1">
-                description: <input name="description" type="text" defaultValue={commonPosition.description} />
+              <div>
+                <label className="p-1 ms-1" style={{ backgroundColor: "#CBC3E3" }}>
+                  description:{" "}
+                </label>
+                <input name="description" type="text" defaultValue={commonPosition.description} />
               </div>
-              <div className="mb-1">
-                Variation: <input name="variation" type="text" defaultValue={commonPosition.variation} />
+              <div>
+                <label className="p-1 ms-1" style={{ backgroundColor: "#CBC3E3" }}>
+                  Variation:{" "}
+                </label>
+                <input name="variation" type="text" defaultValue={commonPosition.variation} />
               </div>
-              <button className="mb-1" type="Submit">
+              <button className="mt-1" type="Submit">
                 Submit
               </button>
             </form>

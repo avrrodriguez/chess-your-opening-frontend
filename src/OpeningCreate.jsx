@@ -16,25 +16,42 @@ export function OpeningCreate() {
   };
 
   return (
-    <div>
+    <div className="mt-3">
       <h3>Add an additional Opening</h3>
       <form onSubmit={handleSubmit}>
-        <div className="mb-1">
-          Name: <input name="name" type="text" />
+        <div>
+          <label className="p-1 ms-1" style={{ backgroundColor: "#CBC3E3" }}>
+            Name:
+          </label>
+          <input name="name" type="text" />
         </div>
-        <div className="mb-1">
-          Add Image Url: <input name="image_url" type="text" />
+        <div>
+          <label className="p-1 ms-1" style={{ backgroundColor: "#CBC3E3" }}>
+            Add Image Url:
+          </label>
+          <input name="image_url" type="text" />
         </div>
-        <div className="mb-1">
-          Description: <input name="description" type="text" />
+        <div>
+          <label className="p-1 ms-1" style={{ backgroundColor: "#CBC3E3" }}>
+            Description:
+          </label>
+          <input name="description" type="text" />
         </div>
-        <div className="mb-1">
-          Difficulty: <input name="difficulty" type="text" />
+        <div>
+          <label className="p-1 ms-1" style={{ backgroundColor: "#CBC3E3" }}>
+            Difficulty:
+          </label>
+          <input name="difficulty" type="text" />
         </div>
-        <div className="mb-1">
-          Variation: <input name="variation" type="text" />
+        <div>
+          <label className="p-1 ms-1" style={{ backgroundColor: "#CBC3E3" }}>
+            Variation:{" "}
+          </label>
+          <input name="variation" type="text" />
         </div>
-        <button type="Submit">Submit</button>
+        <button className="mt-1" type="Submit">
+          Submit
+        </button>
       </form>
     </div>
   );

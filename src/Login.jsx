@@ -38,18 +38,24 @@ export function Login() {
       style={{ height: "90vh" }}
     >
       <div style={{ backgroundColor: "#C8A2C8", height: "200px", width: "290px" }}>
-        <h1 className="d-flex justify-content-center">Login</h1>
+        <h1 className="d-flex justify-content-center mt-1">Login</h1>
         <ul>
           {errors.map((error) => (
             <li key={error}>{error}</li>
           ))}
         </ul>
         <form onSubmit={handleSubmit}>
-          <div className="m-1">
-            Email: <input name="email" type="email" />
+          <div>
+            <label className="p-1 ms-1" style={{ backgroundColor: "#CBC3E3" }}>
+              Email
+            </label>
+            <input name="email" type="email" />
           </div>
-          <div className="m-1">
-            Password: <input name="password" type="password" />
+          <div>
+            <label className="p-1 ms-1" style={{ backgroundColor: "#CBC3E3" }}>
+              Password
+            </label>
+            <input name="password" type="password" />
           </div>
           <button className="btn btn-secondary m-1" type="submit">
             Login

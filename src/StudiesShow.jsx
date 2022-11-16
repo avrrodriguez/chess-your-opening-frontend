@@ -66,10 +66,12 @@ export function StudiesShow() {
                 Notes: <textarea type="text" name="notes" defaultValue={study.notes} />
               </div>
               <div>
-                <button type="change">Update</button>
+                <button type="change" className="btn btn-secondary mt-1">
+                  Update
+                </button>
               </div>
             </form>
-            <button type="submit" onClick={() => handleStudyDestroy(study)}>
+            <button type="submit" className="btn btn-secondary mt-1" onClick={() => handleStudyDestroy(study)}>
               Delete Study
             </button>
           </div>

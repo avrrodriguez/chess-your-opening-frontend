@@ -16,19 +16,27 @@ export function ResourceCreate(props) {
   };
 
   return (
-    <div>
+    <div className="mt-3">
       <h3>Resource Create</h3>
       <form onSubmit={handleSubmit}>
-        <div className="mb-1">
+        <div>
           <input type="hidden" name="opening_id" value={props.opening.id} />
         </div>
-        <div className="mb-1">
-          Link: <input name="link" type="text" />
+        <div>
+          <label className="p-1 ms-1" style={{ backgroundColor: "#CBC3E3" }}>
+            Link:{" "}
+          </label>
+          <input name="link" type="text" />
         </div>
-        <div className="mb-1">
-          Resource type: <input name="resource_type" type="text" />
+        <div>
+          <label className="p-1 ms-1" style={{ backgroundColor: "#CBC3E3" }}>
+            Resource type:{" "}
+          </label>
+          <input name="resource_type" type="text" />
         </div>
-        <button type="Submit">Submit</button>
+        <button className="mt-1" type="Submit">
+          Submit
+        </button>
       </form>
     </div>
   );

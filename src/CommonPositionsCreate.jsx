@@ -16,25 +16,37 @@ export function CommonPositionsCreate(props) {
   };
 
   return (
-    <div>
+    <div className="mt-3">
       <h3>Common Positions Create</h3>
       <form onSubmit={handleSubmit}>
-        <div className="mb-1">
-          Name: <input name="name" type="text" />
+        <div>
+          <label className="p-1 ms-1" style={{ backgroundColor: "#CBC3E3" }}>
+            Name:{" "}
+          </label>
+          <input name="name" type="text" />
         </div>
-        <div className="mb-1">
-          Description: <input name="description" type="text" />
+        <div>
+          <label className="p-1 ms-1" style={{ backgroundColor: "#CBC3E3" }}>
+            Description:{" "}
+          </label>
+          <input name="description" type="text" />
         </div>
-        <div className="mb-1">
-          Image url: <input name="image_url" type="text" />
+        <div>
+          <label className="p-1 ms-1" style={{ backgroundColor: "#CBC3E3" }}>
+            Image url:{" "}
+          </label>
+          <input name="image_url" type="text" />
         </div>
-        <div className="mb-1">
-          Variation: <input name="variation" type="text" />
+        <div>
+          <label className="p-1 ms-1" style={{ backgroundColor: "#CBC3E3" }}>
+            Variation:{" "}
+          </label>
+          <input name="variation" type="text" />
         </div>
-        <div className="mb-1">
+        <div>
           <input type="hidden" name="opening_id" value={props.opening.id} />
         </div>
-        <button className="mb-1" type="Submit">
+        <button className="mt-1" type="Submit">
           Submit
         </button>
       </form>

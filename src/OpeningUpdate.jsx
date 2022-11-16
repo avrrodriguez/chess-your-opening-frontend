@@ -31,24 +31,41 @@ export function OpeningUpdate(props) {
         Destroy Opening
       </button>
 
-      <h3>Update the Opening</h3>
+      <h3 className="mt-3">Update the Opening</h3>
       <form onSubmit={handleSubmit}>
-        <div className="mb-1">
-          Name: <input name="name" type="text" defaultValue={props.opening.name} />
+        <div>
+          <label className="p-1 ms-1" style={{ backgroundColor: "#CBC3E3" }}>
+            Name:{" "}
+          </label>
+          <input name="name" type="text" defaultValue={props.opening.name} />
         </div>
-        <div className="mb-1">
-          Change Image Url: <input name="image_url" type="text" defaultValue={props.opening.image_url} />
+        <div>
+          <label className="p-1 ms-1" style={{ backgroundColor: "#CBC3E3" }}>
+            Change Image Url:{" "}
+          </label>
+          <input name="image_url" type="text" defaultValue={props.opening.image_url} />
         </div>
-        <div className="mb-1">
-          Description: <input name="description" type="text" defaultValue={props.opening.description} />
+        <div>
+          <label className="p-1 ms-1" style={{ backgroundColor: "#CBC3E3" }}>
+            Description:{" "}
+          </label>
+          <input name="description" type="text" defaultValue={props.opening.description} />
         </div>
-        <div className="mb-1">
-          Difficulty: <input name="difficulty" type="text" defaultValue={props.opening.difficulty} />
+        <div>
+          <label className="p-1 ms-1" style={{ backgroundColor: "#CBC3E3" }}>
+            Difficulty:{" "}
+          </label>
+          <input name="difficulty" type="text" defaultValue={props.opening.difficulty} />
         </div>
-        <div className="mb-1">
-          Variation: <input name="variation" type="text" defaultValue={props.opening.variation} />
+        <div>
+          <label className="p-1 ms-1" style={{ backgroundColor: "#CBC3E3" }}>
+            Variation:{" "}
+          </label>
+          <input name="variation" type="text" defaultValue={props.opening.variation} />
         </div>
-        <button type="Submit">Submit</button>
+        <button className="mt-1" type="Submit">
+          Submit
+        </button>
       </form>
     </div>
   );

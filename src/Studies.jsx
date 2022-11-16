@@ -24,7 +24,7 @@ export function Studies() {
                 <h3>{study.opening.name}</h3>
                 <img src={study.opening.image_url} style={{ width: "311px", height: "311px" }} />
                 <div>
-                  <Link type="button" class="btn btn-info" to={`/studies/${study.id}`}>
+                  <Link className="btn btn-secondary mt-1" to={`/studies/${study.id}`}>
                     Go to Study
                   </Link>
                 </div>
@@ -45,7 +45,7 @@ export function Studies() {
                   <h3>{study.opening.name}</h3>
                   <img src={study.opening.image_url} style={{ width: "311px", height: "311px" }} />
                   <div>
-                    <Link type="" to={`/studies/${study.id}`}>
+                    <Link className="btn btn-secondary mt-1" to={`/studies/${study.id}`}>
                       Go to Study
                     </Link>
                   </div>

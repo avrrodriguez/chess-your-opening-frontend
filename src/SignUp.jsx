@@ -25,10 +25,10 @@ export function SignUp() {
     <div
       class="d-flex justify-content-center align-content-center align-self-center flex-wrap"
       id="Signup"
-      style={{ height: "300px" }}
+      style={{ height: "90vh" }}
     >
-      <div style={{ backgroundColor: "white", height: "210px", width: "210px" }}>
-        <h1>Signup</h1>
+      <div style={{ backgroundColor: "#C8A2C8", height: "200px", width: "290px" }}>
+        <h1 className="d-flex justify-content-center mt-1">Signup</h1>
         <ul>
           {errors.map((error) => (
             <li key={error}>{error}</li>
@@ -36,13 +36,21 @@ export function SignUp() {
         </ul>
         <form onSubmit={handleSubmit}>
           <div>
-            Email: <input name="email" type="email" />
+            <label className="p-1 ms-1" style={{ backgroundColor: "#CBC3E3" }}>
+              Email
+            </label>
+            <input name="email" type="email" />
           </div>
           <div>
-            Password: <input name="password" type="password" />
+            <label className="p-1 ms-1" style={{ backgroundColor: "#CBC3E3" }}>
+              Password
+            </label>
+            <input name="password" type="password" />
           </div>
 
-          <button type="submit">Signup</button>
+          <button className="btn btn-secondary m-1" type="submit">
+            Signup
+          </button>
         </form>
       </div>
     </div>

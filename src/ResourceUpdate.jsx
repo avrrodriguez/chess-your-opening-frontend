@@ -21,7 +21,7 @@ export function ResourceUpdate(props) {
   };
 
   return (
-    <div>
+    <div className="mt-3">
       <h3>Update Resource</h3>
       {props.opening.resources.map((resource) => {
         return (
@@ -34,10 +34,16 @@ export function ResourceUpdate(props) {
                 <input type="hidden" name="opening_id" defaultValue={resource.opening_id} />
               </div>
               <div className="mb-1">
-                Link <input name="link" type="text" defaultValue={resource.link} />
+                <label className="p-1 ms-1" style={{ backgroundColor: "#CBC3E3" }}>
+                  Link{" "}
+                </label>
+                <input name="link" type="text" defaultValue={resource.link} />
               </div>
               <div className="mb-1">
-                Resource Type <input name="resource_type" defaultValue={resource.resource_type} />
+                <label className="p-1 ms-1" style={{ backgroundColor: "#CBC3E3" }}>
+                  Resource Type{" "}
+                </label>
+                <input name="resource_type" defaultValue={resource.resource_type} />
               </div>
               <button className="mb-1" type="Submit">
                 Submit
