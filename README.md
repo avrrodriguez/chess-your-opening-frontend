@@ -26,11 +26,11 @@ JSON web token authentications was used to create secure users.
 npm run dev
 ```
 
-- When adding openings, to get live games, add fen to ChessGames file in gameFenDict variable
-  ![screenshot](gamefen_screenshot.png)
+When adding openings, to get live games, add fen to ChessGames file in gameFenDict variable
+![screenshot](gamefen_screenshot.png)
 
-- To add Image to openings, common positions, add the image url in the image url section
-  ![screenshot](openingUpdate.png)
+To add Image to openings, common positions, add the image url in the image url section
+![screenshot](openingUpdate.png)
 
 ## Roadmap
 
