@@ -39,3 +39,5 @@ To add Image to openings, common positions, add the image url in the image url s
 - Allowing users to change the status of their studies(either public or private)
 - Search bar for searching for openings
 - Making notes update upon change (no button)
+- Make model for games, fen put in them, and change how requests with fen are made so that it gets it from the model.
+- Find way to automatically get fen when adding openings.
