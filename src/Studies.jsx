@@ -20,7 +20,7 @@ export function Studies() {
           <h1 className="d-flex justify-content-center">Public Studies</h1>
           {studies.map((study) =>
             study.public ? (
-              <div className="mb-2">
+              <div className="mb-2" key={study.id}>
                 <h3>{study.opening.name}</h3>
                 <img src={study.opening.image_url} style={{ width: "311px", height: "311px" }} />
                 <div>
@@ -41,7 +41,7 @@ export function Studies() {
               study.public ? (
                 <></>
               ) : (
-                <div className="mb-3 mt-2">
+                <div className="mb-3 mt-2" key={study.id}>
                   <h3>{study.opening.name}</h3>
                   <img src={study.opening.image_url} style={{ width: "311px", height: "311px" }} />
                   <div>

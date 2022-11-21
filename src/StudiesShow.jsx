@@ -20,6 +20,7 @@ export function StudiesShow() {
 
   const handleStudyUpdate = (event) => {
     event.preventDefault();
+    console.log(event.target);
     const params = new FormData(event.target);
     const studyId = params.get("study_id");
     axios.patch("http://localhost:3000/studies/" + studyId + ".json", params).then((response) => {
@@ -55,7 +56,7 @@ export function StudiesShow() {
             <div>
               <ChessGame openingName={study.opening?.name} />
             </div>
-            <form onSubmit={handleStudyUpdate}>
+            <form id="study-update" onSubmit={handleStudyUpdate}>
               <div>
                 <input type="hidden" name="opening_id" value={study.opening_id} />
               </div>
@@ -69,7 +70,7 @@ export function StudiesShow() {
                 <h5>Private or Public Study?</h5>
                 {study.public ? (
                   <>
-                    <input type="radio" name="public" value="true" checked="yes" /> <label>Public</label>
+                    <input type="radio" name="public" value="true" defaultChecked="yes" /> <label>Public</label>
                     <br />
                     <input type="radio" name="public" value="false" /> <label>Private</label>
                   </>
@@ -77,7 +78,7 @@ export function StudiesShow() {
                   <>
                     <input type="radio" name="public" value="true" /> <label>Public</label>
                     <br />
-                    <input type="radio" name="public" value="false" checked="yes" /> <label>Private</label>
+                    <input type="radio" name="public" value="false" defaultChecked="yes" /> <label>Private</label>
                   </>
                 )}
               </div>
