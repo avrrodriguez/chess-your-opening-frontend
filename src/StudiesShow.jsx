@@ -65,6 +65,22 @@ export function StudiesShow() {
               <div>
                 Notes: <textarea type="text" name="notes" defaultValue={study.notes} />
               </div>
+              <div className="mt-1">
+                <h5>Private or Public Study?</h5>
+                {study.public ? (
+                  <>
+                    <input type="radio" name="public" value="true" checked="yes" /> <label>Public</label>
+                    <br />
+                    <input type="radio" name="public" value="false" /> <label>Private</label>
+                  </>
+                ) : (
+                  <>
+                    <input type="radio" name="public" value="true" /> <label>Public</label>
+                    <br />
+                    <input type="radio" name="public" value="false" checked="yes" /> <label>Private</label>
+                  </>
+                )}
+              </div>
               <div>
                 <button type="change" className="btn btn-secondary mt-1">
                   Update

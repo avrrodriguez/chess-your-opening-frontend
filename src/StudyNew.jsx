@@ -20,12 +20,15 @@ export function StudyNew(props) {
       <form onSubmit={handleSubmit}>
         <div>
           <label className="p-1 ms-1" style={{ backgroundColor: "#CBC3E3" }}>
-            Notes:{" "}
+            Notes:
           </label>
           <input type="text" name="notes" id="notes" />
         </div>
         <div>
           <input type="hidden" name="opening_id" value={props.openingId} />
+        </div>
+        <div>
+          <input type="hidden" name="public" value="false" />
         </div>
         <div>
           <button type="submit" className="btn btn-secondary mt-1">
