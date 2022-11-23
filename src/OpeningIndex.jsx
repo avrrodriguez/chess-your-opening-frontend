@@ -1,9 +1,23 @@
+import { useState } from "react";
+
 export function OpeningIndex(props) {
+  const [searchFilter, setSearchFilter] = useState("");
   return (
     <div>
       <h1 className="d-flex justify-content-center" style={{ backgroundColor: "#C8A2C8" }}>
         Openings
       </h1>
+      <div>
+        <label className="p-1 ms-1" style={{ backgroundColor: "#CBC3E3" }}>
+          Search Filter:
+        </label>
+        <input type="text" value={searchFilter} onChange={() => setSearchFilter(event.target.value)} list="titles" />
+        <datalist id="titles">
+          {props.Openings.map((opening) => (
+            <option key={opening.id}>{opening.name}</option>
+          ))}
+        </datalist>
+      </div>
       {props.Openings.map((opening) => (
         <div key={opening.id}>
           <div className="card mb-3" style={{ mw: "540px", backgroundColor: "#C8A2C8" }}>

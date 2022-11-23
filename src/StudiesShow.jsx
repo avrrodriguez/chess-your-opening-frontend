@@ -3,9 +3,12 @@ import { useState, useEffect } from "react";
 import { ChessGame } from "./ChessGame";
 import { OpeningShow } from "./OpeningShow";
 import { useParams } from "react-router-dom";
+import { Modal } from "./Modal";
+import { Confirmation } from "./Confirmation";
 
 export function StudiesShow() {
   const [study, setStudy] = useState({});
+  const [isConfirmVisible, setIsConfirmVisible] = useState(false);
 
   let { id } = useParams();
   const routeStudyId = id;
@@ -29,18 +32,19 @@ export function StudiesShow() {
     });
   };
 
-  const handleStudyDestroy = (study) => {
-    axios.delete("http://localhost:3000/studies/" + study.id + ".json").then((response) => {
-      console.log(response);
-      window.location.href = "/";
-    });
-  };
-
   const handleOpeningShow = (study) => {
     var opening = Object.assign({}, study.opening);
     opening["resources"] = study.resources;
     opening["common_positions"] = study.common_positions;
     return opening;
+  };
+
+  const handleShowConfirm = () => {
+    setIsConfirmVisible(true);
+  };
+
+  const handleHideConfirm = () => {
+    setIsConfirmVisible(false);
   };
 
   useEffect(handleStudyShow, []);
@@ -64,7 +68,10 @@ export function StudiesShow() {
                 <input type="hidden" name="study_id" value={study.id} />
               </div>
               <div>
-                Notes: <textarea type="text" name="notes" defaultValue={study.notes} />
+                <label className="p-1 ms-1" style={{ backgroundColor: "#CBC3E3" }}>
+                  Notes:
+                </label>
+                <textarea type="text" name="notes" defaultValue={study.notes} />
               </div>
               <div className="mt-1">
                 <h5>Private or Public Study?</h5>
@@ -88,9 +95,12 @@ export function StudiesShow() {
                 </button>
               </div>
             </form>
-            <button type="submit" className="btn btn-secondary mt-1" onClick={() => handleStudyDestroy(study)}>
+            <button type="submit" className="btn btn-secondary mt-1" onClick={() => handleShowConfirm(study)}>
               Delete Study
             </button>
+            <Modal show={isConfirmVisible} onClose={handleHideConfirm}>
+              <Confirmation study={study} />
+            </Modal>
           </div>
         </div>
       </div>
