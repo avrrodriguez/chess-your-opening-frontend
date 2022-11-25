@@ -1,33 +1,31 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Component } from "react";
 import { ChessGame } from "./ChessGame";
 import { OpeningShow } from "./OpeningShow";
 import { useParams } from "react-router-dom";
 import { Modal } from "./Modal";
 import { Confirmation } from "./Confirmation";
+import { useRef } from "react";
 
 export function StudiesShow() {
   const [study, setStudy] = useState({});
   const [isConfirmVisible, setIsConfirmVisible] = useState(false);
+  const [newForm, setNewForm] = useState({});
 
   let { id } = useParams();
   const routeStudyId = id;
 
   const handleStudyShow = () => {
-    console.log(routeStudyId);
     axios.get("http://localhost:3000/studies/" + routeStudyId + ".json").then((response) => {
-      console.log(response.data);
       setStudy(response.data);
     });
   };
 
-  const handleStudyUpdate = (event) => {
-    event.preventDefault();
-    console.log(event.target);
-    const params = new FormData(event.target);
+  const handleStudyUpdate = (params) => {
     const studyId = params.get("study_id");
     axios.patch("http://localhost:3000/studies/" + studyId + ".json", params).then((response) => {
       console.log(response.data);
+      console.log("done updating");
       setStudy(response.data);
     });
   };
@@ -47,6 +45,29 @@ export function StudiesShow() {
     setIsConfirmVisible(false);
   };
 
+  var count = 0;
+
+  const changeForm = useRef(null);
+
+  var form;
+  const handleChange = async () => {
+    var isTruePublic = changeForm.current.public.value === "true";
+
+    if (study.public !== isTruePublic) {
+      await sleep(10);
+    } else {
+      await sleep(20000);
+    }
+
+    if (count === 0) {
+      count += 1;
+      form = new FormData(changeForm.current);
+      handleStudyUpdate(form);
+    }
+  };
+
+  const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
   useEffect(handleStudyShow, []);
 
   return (
@@ -60,7 +81,7 @@ export function StudiesShow() {
             <div>
               <ChessGame openingName={study.opening?.name} />
             </div>
-            <form id="study-update" onSubmit={handleStudyUpdate}>
+            <form ref={changeForm} id="study-update" onSubmit={handleStudyUpdate} onChange={handleChange}>
               <div>
                 <input type="hidden" name="opening_id" value={study.opening_id} />
               </div>
@@ -90,9 +111,9 @@ export function StudiesShow() {
                 )}
               </div>
               <div>
-                <button type="change" className="btn btn-secondary mt-1">
+                {/* <button type="change" className="btn btn-secondary mt-1">
                   Update
-                </button>
+                </button> */}
               </div>
             </form>
             <button type="submit" className="btn btn-secondary mt-1" onClick={() => handleShowConfirm(study)}>

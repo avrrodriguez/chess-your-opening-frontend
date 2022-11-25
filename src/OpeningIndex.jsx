@@ -2,6 +2,7 @@ import { useState } from "react";
 
 export function OpeningIndex(props) {
   const [searchFilter, setSearchFilter] = useState("");
+
   return (
     <div>
       <h1 className="d-flex justify-content-center" style={{ backgroundColor: "#C8A2C8" }}>
