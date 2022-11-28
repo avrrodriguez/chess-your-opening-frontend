@@ -8,11 +8,23 @@ export function OpeningCreate() {
     });
   };
 
+  const handleImageEnter = (params) => {
+    axios.post("http://localhost:3000/posts.json", params).then((response) => {
+      console.log(response.data);
+    });
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const params = new FormData(event.target);
     handleOpeningCreate(params);
     event.target.reset();
+  };
+
+  const handleImageSubmit = (event) => {
+    event.preventDefault();
+    const params = new FormData(event.target);
+    handleImageEnter(params);
   };
 
   return (
@@ -24,12 +36,6 @@ export function OpeningCreate() {
             Name:
           </label>
           <input name="name" type="text" />
-        </div>
-        <div>
-          <label className="p-1 ms-1" style={{ backgroundColor: "#CBC3E3" }}>
-            Add Image Url:
-          </label>
-          <input name="image_url" type="text" />
         </div>
         <div>
           <label className="p-1 ms-1" style={{ backgroundColor: "#CBC3E3" }}>
@@ -52,6 +58,20 @@ export function OpeningCreate() {
         <button className="mt-1" type="Submit">
           Submit
         </button>
+      </form>
+      <h3>Add Image</h3>
+      <form onSubmit={handleImageSubmit}>
+        <label className="p-1 ms-1" style={{ backgroundColor: "#CBC3E3" }}>
+          Opening Name
+        </label>
+        <input type="text" name="title" />
+        <br />
+        <label className="p-1 ms-1" style={{ backgroundColor: "#CBC3E3" }}>
+          Choose Image
+        </label>
+        <input type="file" name="image" id="image" />
+        <br />
+        <button type="submit">Submit</button>
       </form>
     </div>
   );
