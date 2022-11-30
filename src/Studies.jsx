@@ -22,7 +22,7 @@ export function Studies() {
             study.public ? (
               <div className="mb-2" key={study.id}>
                 <h3>{study.opening.name}</h3>
-                <img src={study.opening.image_url} style={{ width: "311px", height: "311px" }} />
+                <img src={study.opening_image?.image_url} style={{ width: "311px", height: "311px" }} />
                 <div>
                   <Link className="btn btn-secondary mt-1" to={`/studies/${study.id}`}>
                     Go to Study
@@ -43,7 +43,7 @@ export function Studies() {
               ) : (
                 <div className="mb-3 mt-2" key={study.id}>
                   <h3>{study.opening.name}</h3>
-                  <img src={study.opening.image_url} style={{ width: "311px", height: "311px" }} />
+                  <img src={study.opening_image?.image_url} style={{ width: "311px", height: "311px" }} />
                   <div>
                     <Link className="btn btn-secondary mt-1" to={`/studies/${study.id}`}>
                       Go to Study
