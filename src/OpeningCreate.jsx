@@ -68,7 +68,6 @@ export function OpeningCreate(props) {
       <h3>Add Image</h3>
       <form onSubmit={handleImageSubmit}>
         <input type="hidden" name="opening_id" value={props.opening.id} />
-        <input type="hidden" name="common_position_id" value={1} />
         <label className="p-1 ms-1" style={{ backgroundColor: "#CBC3E3" }}>
           Image Name
         </label>
