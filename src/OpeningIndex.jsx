@@ -2,9 +2,6 @@ import { useState } from "react";
 
 export function OpeningIndex(props) {
   const [searchFilter, setSearchFilter] = useState("");
-  const [openingImage, setOpeningImage] = useState("");
-
-  props.Openings[4]?.opening_image.image_url ? console.log("yep") : console.log("nope");
 
   return (
     <div>

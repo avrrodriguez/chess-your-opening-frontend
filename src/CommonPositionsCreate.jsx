@@ -33,12 +33,6 @@ export function CommonPositionsCreate(props) {
         </div>
         <div>
           <label className="p-1 ms-1" style={{ backgroundColor: "#CBC3E3" }}>
-            Image url:{" "}
-          </label>
-          <input name="image_url" type="text" />
-        </div>
-        <div>
-          <label className="p-1 ms-1" style={{ backgroundColor: "#CBC3E3" }}>
             Variation:{" "}
           </label>
           <input name="variation" type="text" />

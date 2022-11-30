@@ -41,12 +41,6 @@ export function OpeningUpdate(props) {
         </div>
         <div>
           <label className="p-1 ms-1" style={{ backgroundColor: "#CBC3E3" }}>
-            Change Image Url:{" "}
-          </label>
-          <input name="image_url" type="text" defaultValue={props.opening.image_url} />
-        </div>
-        <div>
-          <label className="p-1 ms-1" style={{ backgroundColor: "#CBC3E3" }}>
             Description:{" "}
           </label>
           <input name="description" type="text" defaultValue={props.opening.description} />

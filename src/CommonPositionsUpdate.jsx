@@ -40,12 +40,6 @@ export function CommonPositionsUpdate(props) {
               </div>
               <div>
                 <label className="p-1 ms-1" style={{ backgroundColor: "#CBC3E3" }}>
-                  Image url:{" "}
-                </label>
-                <input name="image_url" type="text" defaultValue={commonPosition.image_url} />
-              </div>
-              <div>
-                <label className="p-1 ms-1" style={{ backgroundColor: "#CBC3E3" }}>
                   description:{" "}
                 </label>
                 <input name="description" type="text" defaultValue={commonPosition.description} />
