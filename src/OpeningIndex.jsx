@@ -2,6 +2,9 @@ import { useState } from "react";
 
 export function OpeningIndex(props) {
   const [searchFilter, setSearchFilter] = useState("");
+  const [openingImage, setOpeningImage] = useState("");
+
+  props.Openings[4]?.opening_image.image_url ? console.log("yep") : console.log("nope");
 
   return (
     <div>
@@ -27,7 +30,7 @@ export function OpeningIndex(props) {
               <div className="row g-0">
                 <div className="col-md-4">
                   <img
-                    src={opening.image_url}
+                    src={opening.opening_image?.image_url}
                     className="img-fluid rounded-start"
                     alt="..."
                     style={{ width: "311px", height: "311px" }}

@@ -10,7 +10,7 @@ export function OpeningAdmin(props) {
     <div>
       <h1 className="d-flex justify-content-center">Admin Options</h1>
       <OpeningUpdate opening={props.opening} />
-      <OpeningCreate />
+      <OpeningCreate opening={props.opening} />
       <ResourceUpdate opening={props.opening} />
       <ResourceCreate opening={props.opening} />
       <CommonPositionsUpdate opening={props.opening} />

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export function OpeningCreate() {
+export function OpeningCreate(props) {
   const handleOpeningCreate = (params) => {
     axios.post("http://localhost:3000/openings.json", params).then((response) => {
       console.log(response.data);
@@ -9,9 +9,15 @@ export function OpeningCreate() {
   };
 
   const handleImageEnter = (params) => {
-    axios.post("http://localhost:3000/posts.json", params).then((response) => {
-      console.log(response.data);
-    });
+    axios
+      .post("http://localhost:3000/posts.json", params)
+      .then((response) => {
+        console.log(response.data);
+        window.location.href = "/";
+      })
+      .catch((error) => {
+        console.log(error.response.data);
+      });
   };
 
   const handleSubmit = (event) => {
@@ -61,8 +67,10 @@ export function OpeningCreate() {
       </form>
       <h3>Add Image</h3>
       <form onSubmit={handleImageSubmit}>
+        <input type="hidden" name="opening_id" value={props.opening.id} />
+        <input type="hidden" name="common_position_id" value={1} />
         <label className="p-1 ms-1" style={{ backgroundColor: "#CBC3E3" }}>
-          Opening Name
+          Image Name
         </label>
         <input type="text" name="title" />
         <br />
