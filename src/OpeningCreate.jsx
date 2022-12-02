@@ -20,6 +20,13 @@ export function OpeningCreate(props) {
       });
   };
 
+  const handleImageDelete = () => {
+    axios.delete("http://localhost:3000/posts/" + props.opening.opening_image?.id + ".json").then((response) => {
+      console.log(response.data);
+      window.location.href = "/";
+    });
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const params = new FormData(event.target);
@@ -65,21 +72,32 @@ export function OpeningCreate(props) {
           Submit
         </button>
       </form>
-      <h3>Add Image</h3>
-      <form onSubmit={handleImageSubmit}>
-        <input type="hidden" name="opening_id" value={props.opening.id} />
-        <label className="p-1 ms-1" style={{ backgroundColor: "#CBC3E3" }}>
-          Image Name
-        </label>
-        <input type="text" name="title" />
-        <br />
-        <label className="p-1 ms-1" style={{ backgroundColor: "#CBC3E3" }}>
-          Choose Image
-        </label>
-        <input type="file" name="image" id="image" />
-        <br />
-        <button type="submit">Submit</button>
-      </form>
+      {props.opening.opening_image?.image_url ? (
+        <>
+          <h3>Opening Image</h3>
+          <button className="p-1 ms-1" style={{ backgroundColor: "#CBC3E3" }} onClick={handleImageDelete}>
+            Delete Image
+          </button>
+        </>
+      ) : (
+        <>
+          <h3>Opening Image</h3>
+          <form onSubmit={handleImageSubmit}>
+            <input type="hidden" name="opening_id" value={props.opening.id} />
+            <label className="p-1 ms-1" style={{ backgroundColor: "#CBC3E3" }}>
+              Image Name
+            </label>
+            <input type="text" name="title" />
+            <br />
+            <label className="p-1 ms-1" style={{ backgroundColor: "#CBC3E3" }}>
+              Choose Image
+            </label>
+            <input type="file" name="image" id="image" />
+            <br />
+            <button type="submit">Add image</button>
+          </form>
+        </>
+      )}
     </div>
   );
 }
