@@ -1,13 +1,13 @@
 import axios from "axios";
-import { useState } from "react";
 
 export function OpeningUpdate(props) {
-  const [opening, setOpening] = useState({});
+  const {
+    opening: { id, name, description, difficulty, variation },
+  } = props;
 
   const handleOpeningUpdate = (params) => {
-    axios.patch("http://localhost:3000/openings/" + props.opening.id + ".json", params).then((response) => {
+    axios.patch("http://localhost:3000/openings/" + id + ".json", params).then((response) => {
       console.log(response.data);
-      setOpening(response.data);
     });
   };
 
@@ -19,7 +19,7 @@ export function OpeningUpdate(props) {
   };
 
   const handleDestroy = () => {
-    axios.delete("http://localhost:3000/openings/" + props.opening.id + ".json").then((response) => {
+    axios.delete("http://localhost:3000/openings/" + id + ".json").then((response) => {
       window.location.href = "/";
     });
   };
@@ -37,25 +37,25 @@ export function OpeningUpdate(props) {
           <label className="p-1 ms-1" style={{ backgroundColor: "#CBC3E3" }}>
             Name:{" "}
           </label>
-          <input name="name" type="text" defaultValue={props.opening.name} />
+          <input name="name" type="text" defaultValue={name} />
         </div>
         <div>
           <label className="p-1 ms-1" style={{ backgroundColor: "#CBC3E3" }}>
             Description:{" "}
           </label>
-          <input name="description" type="text" defaultValue={props.opening.description} />
+          <input name="description" type="text" defaultValue={description} />
         </div>
         <div>
           <label className="p-1 ms-1" style={{ backgroundColor: "#CBC3E3" }}>
             Difficulty:{" "}
           </label>
-          <input name="difficulty" type="text" defaultValue={props.opening.difficulty} />
+          <input name="difficulty" type="text" defaultValue={difficulty} />
         </div>
         <div>
           <label className="p-1 ms-1" style={{ backgroundColor: "#CBC3E3" }}>
             Variation:{" "}
           </label>
-          <input name="variation" type="text" defaultValue={props.opening.variation} />
+          <input name="variation" type="text" defaultValue={variation} />
         </div>
         <button className="mt-1" type="Submit">
           Submit

@@ -5,16 +5,16 @@ import { ResourceUpdate } from "./ResourceUpdate";
 import { CommonPositionsCreate } from "./CommonPositionsCreate";
 import { CommonPositionsUpdate } from "./CommonPositionsUpdate";
 
-export function OpeningAdmin(props) {
+export function OpeningAdmin({ opening }) {
   return (
     <div>
       <h1 className="d-flex justify-content-center">Admin Options</h1>
-      <OpeningUpdate opening={props.opening} />
-      <OpeningCreate opening={props.opening} />
-      <ResourceUpdate opening={props.opening} />
-      <ResourceCreate opening={props.opening} />
-      <CommonPositionsUpdate opening={props.opening} />
-      <CommonPositionsCreate opening={props.opening} />
+      <OpeningUpdate opening={opening} />
+      <OpeningCreate opening={opening} />
+      <ResourceUpdate opening={opening} />
+      <ResourceCreate opening={opening} />
+      <CommonPositionsUpdate opening={opening} />
+      <CommonPositionsCreate opening={opening} />
     </div>
   );
 }
