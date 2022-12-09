@@ -10,7 +10,7 @@ import { useRef } from "react";
 export function StudiesShow() {
   const [study, setStudy] = useState({});
   const [isConfirmVisible, setIsConfirmVisible] = useState(false);
-  const [newForm, setNewForm] = useState({});
+  const [updating, setUpdating] = useState(false);
 
   let { id } = useParams();
   const routeStudyId = id;
@@ -46,12 +46,13 @@ export function StudiesShow() {
   };
 
   var count = 0;
+  var form;
 
   const changeForm = useRef(null);
 
-  var form;
   const handleChange = async () => {
     var isTruePublic = changeForm.current.public.value === "true";
+    setUpdating(true);
 
     if (study.public !== isTruePublic) {
       await sleep(10);
@@ -63,6 +64,7 @@ export function StudiesShow() {
       count += 1;
       form = new FormData(changeForm.current);
       handleStudyUpdate(form);
+      setUpdating(false);
     }
   };
 
@@ -94,6 +96,15 @@ export function StudiesShow() {
                 </label>
                 <textarea type="text" name="notes" defaultValue={study.notes} />
               </div>
+              {updating ? (
+                <>
+                  <p className="p-1 ms-1" style={{ backgroundColor: "#9a81e3" }}>
+                    Updating...
+                  </p>
+                </>
+              ) : (
+                <></>
+              )}
               <div className="mt-1">
                 <h5>Private or Public Study?</h5>
                 {study.public ? (
@@ -109,11 +120,6 @@ export function StudiesShow() {
                     <input type="radio" name="public" value="false" defaultChecked="yes" /> <label>Private</label>
                   </>
                 )}
-              </div>
-              <div>
-                {/* <button type="change" className="btn btn-secondary mt-1">
-                  Update
-                </button> */}
               </div>
             </form>
             <button type="submit" className="btn btn-secondary mt-1" onClick={() => handleShowConfirm(study)}>
