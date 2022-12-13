@@ -11,6 +11,7 @@ export function StudiesShow() {
   const [study, setStudy] = useState({});
   const [isConfirmVisible, setIsConfirmVisible] = useState(false);
   const [updating, setUpdating] = useState(false);
+  const [updateSuccess, setUpdateSuccess] = useState(false);
 
   let { id } = useParams();
   const routeStudyId = id;
@@ -27,6 +28,10 @@ export function StudiesShow() {
       console.log(response.data);
       console.log("done updating");
       setStudy(response.data);
+      setUpdateSuccess(true);
+      setTimeout(() => {
+        setUpdateSuccess(false);
+      }, 3000);
     });
   };
 
@@ -57,7 +62,7 @@ export function StudiesShow() {
     if (study.public !== isTruePublic) {
       await sleep(10);
     } else {
-      await sleep(20000);
+      await sleep(2000);
     }
 
     if (count === 0) {
@@ -73,7 +78,7 @@ export function StudiesShow() {
   useEffect(handleStudyShow, []);
 
   return (
-    <div className="" style={{ backgroundColor: "#C8A2C8", opacity: "0.85" }}>
+    <div style={{ backgroundColor: "#C8A2C8", opacity: "0.85" }}>
       <div key={study.id} className="container">
         <div className="row mt-1 mb-3">
           <div key={study.opening?.id} className="col">
@@ -83,7 +88,7 @@ export function StudiesShow() {
             <div>
               <ChessGame openingName={study.opening?.name} />
             </div>
-            <form ref={changeForm} id="study-update" onSubmit={handleStudyUpdate} onChange={handleChange}>
+            <form ref={changeForm} id="study-update" onChange={handleChange}>
               <div>
                 <input type="hidden" name="opening_id" value={study.opening_id} />
               </div>
@@ -96,14 +101,19 @@ export function StudiesShow() {
                 </label>
                 <textarea type="text" name="notes" defaultValue={study.notes} />
               </div>
-              {updating ? (
+              {updating && (
                 <>
                   <p className="p-1 ms-1" style={{ backgroundColor: "#9a81e3" }}>
                     Updating...
                   </p>
                 </>
-              ) : (
-                <></>
+              )}
+              {updateSuccess && (
+                <>
+                  <p className="p-1 ms-1" style={{ backgroundColor: "#00FF00" }}>
+                    Update Complete
+                  </p>
+                </>
               )}
               <div className="mt-1">
                 <h5>Private or Public Study?</h5>
